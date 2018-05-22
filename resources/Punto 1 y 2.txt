@@ -1,0 +1,59 @@
+Respuestas Parcial II Programación orientada a objetos.
+
+Prof: Fabian Giraldo
+Presentado por: Fellhipe Gutierrez
+
+1. Polimorfismo Herencia
+
+Respuesta: Salida por consola
+
+Bay 1 
+Pond 2
+
+Ocean 2
+
+Lake 3
+Ocean 2
+
+
+Pond 1
+
+Pond 2
+
+Pond 3
+
+
+Pond 1
+
+Pond 2
+
+Lake 3
+Pond 2
+
+
+Bay 1 
+Pond 2
+
+Bay 2
+
+Lake 3
+Bay 2
+
+
+Punto 2: 
+2.1 Mensajes permitidos por el compilador
+	a. sh.perimeter() Permitido
+	b. tr.perimeter() Permitido
+	c. sh.height() No Permitido
+	d. sq.height() No Permitido
+	e. sq.perimeter() Permitido
+	f. tr.height() Permitido
+2.2 Asignaciones permitidas por el compilador
+	a. sq = sh; No permitido
+	b. sh = tr; Permitido
+	c. tr = sq; No permitido
+	d. tr = sh; No permitido
+
+
+25 - 20 = 5
+25 - 10 = 15
