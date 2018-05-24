@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  * @author Estudiante
  */
 public class Main {
-    public static void main(String[] args) throws TicketNumberException{
+    public static void main(String[] args){
         
         Compania tx = new Compania("Ticket Xpress");
         
@@ -27,26 +27,28 @@ public class Main {
         Ticket t3 = new StudentAdvanceTicket(evento, 3, 22, 05, 2018, est);
         Ticket t4 = new StudentAdvanceTicket(evento, 4, 9, 05, 2018, est);
         Ticket t5 = new WalkUpTicket(5, 25, 5, 2018);
+        Ticket t6 = new WalkUpTicket(6, 25, 5, 2018);
         
-        tx.anadirTicket(t1);
-        tx.anadirTicket(t2);
         
-        for (int i = 0; i < tx.getListaTickets().size(); i++) {
-            System.out.println(tx.getListaTickets().get(i).getId());
+        
+        try {
+            tx.registrarTicket(t1);
+            tx.registrarTicket(t2);
+            tx.registrarTicket(t3);
+            tx.registrarTicket(t4);
+            tx.registrarTicket(t5);
+            tx.registrarTicket(t6);
+            tx.registrarTicket(t6);
+        } catch(TicketNumberException ex) {
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getStackTrace());
         }
-        
-//        try {
-//            tx.anadirTicket(t1);
-//            
-//        } catch (TicketNumberException ex) {
-//            System.out.println(ex.getMessage());
-//        }
-        
+            
+            
         for (int i = 0; i < tx.getListaTickets().size(); i++) {
-            System.out.println(tx.getListaTickets().get(i).getId());
+            System.out.println(tx.getListaTickets().get(i).info());
         }
-        
-        
+        System.out.println(tx.tiquetesVendidosdeCadaTipo());
     }
     
 }

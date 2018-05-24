@@ -27,6 +27,11 @@ public class StudentAdvanceTicket extends AdvanceTicket{
     public int precioTick() {
         return super.getPrecio();
     }
+    
+    @Override
+    public String info(){
+        return super.info() + " Carnet estudiante: " + this.estudiante.getCarnet();
+    }
 
 
     

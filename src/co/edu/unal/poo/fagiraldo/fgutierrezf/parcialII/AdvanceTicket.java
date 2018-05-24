@@ -40,6 +40,11 @@ public class AdvanceTicket extends Ticket{
         return advprc;
     }
     
+    @Override
+    public String info(){
+        return super.info() + " Dia Evento: " + this.event.getDia();
+    }
+    
     
     
     

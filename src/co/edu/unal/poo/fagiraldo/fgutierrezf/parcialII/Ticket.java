@@ -25,6 +25,10 @@ public abstract class Ticket {
 
     public abstract int precioTick();
     
+    public String info(){
+        return "Id: " + this.id + " Precio: " + this.getPrecio() + " "+ this.getClass().getSimpleName();
+    }
+    
     public int getId() {
         return id;
     }

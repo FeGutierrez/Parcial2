@@ -21,34 +21,23 @@ public class Compania {
         this.listaTickets = new ArrayList<>();
     }
     
-    public boolean anadirTicket(Ticket ticketReg){
-        boolean exito = false;
+    
+    public void registrarTicket(Ticket ticket) throws TicketNumberException{
+        boolean ex = false;
         for (int i = 0; i < this.listaTickets.size(); i++) {
-            if (this.listaTickets.get(i).getId() == ticketReg.getId()) {
-                exito = false;
+            if (this.listaTickets.get(i).getId()==ticket.id) {
+                ex = true;
             } else {
-                exito = true;
+                ex= false;
             }
         }
-        return false;
+        
+        if (ex==false) {
+            this.listaTickets.add(ticket);
+        } else {
+            throw new TicketNumberException("Id ya registrado");
+        }
     }
-    
-//    public boolean anadirTicket(Ticket ticketReg) throws TicketNumberException{
-//        boolean exito = false;
-//        for (int i = 0; i < this.listaTickets.size(); i++) {
-//            if (this.listaTickets.get(i).getId() == ticketReg.getId()) {
-//                exito = false;
-//            } else {
-//                exito = true;
-//            }
-//        }
-//        if (exito==false) {
-//            throw new TicketNumberException("Ticket ya registrado");
-//        } else {
-//            this.listaTickets.add(ticketReg);
-//        }
-//        return exito;
-//    };
 
     public String getNombre() {
         return nombre;
@@ -66,8 +55,26 @@ public class Compania {
         this.listaTickets = listaTickets;
     }
     
-    
-    
-    
-    
+    public String tiquetesVendidosdeCadaTipo(){
+        Ticket x = null;
+        int advCount=0;
+        int studentCount=0;
+        int walkCount=0;
+        for (int i = 0; i < this.listaTickets.size(); i++) {
+            x= this.listaTickets.get(i);
+            if (x instanceof StudentAdvanceTicket) {
+                studentCount+=1;
+            } else {
+                if (x instanceof AdvanceTicket) {
+                    advCount+=1;
+                } else {
+                    if (x instanceof WalkUpTicket) {
+                        walkCount+=1;
+                    }
+                }
+            }
+        }
+        return "Tickets Walk-Up: "+ walkCount +" Tickets Advance: " + 
+                advCount +" Tickets Student Advance: " + studentCount;
+    }
 }
