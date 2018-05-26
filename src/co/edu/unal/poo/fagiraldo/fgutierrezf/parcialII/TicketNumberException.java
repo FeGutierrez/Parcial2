@@ -11,7 +11,7 @@ package co.edu.unal.poo.fagiraldo.fgutierrezf.parcialII;
  */
 public class TicketNumberException extends Exception{
     public TicketNumberException(String mensaje){
-            super(mensaje);
+            super("\033[31m"+mensaje);
     }
     
 }

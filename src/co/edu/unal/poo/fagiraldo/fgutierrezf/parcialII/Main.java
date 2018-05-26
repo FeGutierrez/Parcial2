@@ -20,14 +20,17 @@ public class Main {
         Institucion ins = new Institucion("Unal");
         Estudiante est = new Estudiante(4444, ins);        
         //Evento (dia, mes, año)
-        Event evento = new Event(25, 05, 2018);
-                
+        Event evento = new Event(25, 05, 2018); // Evento con fecha para hacer calculos de costo de tickets advance y student advance, sin calendar.
+          
+        //Tickets
         Ticket t1 = new AdvanceTicket(evento, 1, 22, 05, 2018);
         Ticket t2 = new AdvanceTicket(evento, 2, 9, 05, 2018);
         Ticket t3 = new StudentAdvanceTicket(evento, 3, 22, 05, 2018, est);
         Ticket t4 = new StudentAdvanceTicket(evento, 4, 9, 05, 2018, est);
         Ticket t5 = new WalkUpTicket(5, 25, 5, 2018);
         Ticket t6 = new WalkUpTicket(6, 25, 5, 2018);
+        
+        Ticket t7 = new WalkUpTicket(6, 25, 5, 2018);//Ticket duplicado con el mismo id que t6
         
         
         
@@ -38,10 +41,9 @@ public class Main {
             tx.registrarTicket(t4);
             tx.registrarTicket(t5);
             tx.registrarTicket(t6);
-            tx.registrarTicket(t6);
+            tx.registrarTicket(t7);//Ingresar ticket Duplicado
         } catch(TicketNumberException ex) {
             System.out.println(ex.getMessage());
-            System.out.println(ex.getStackTrace());
         }
             
             
@@ -49,6 +51,9 @@ public class Main {
             System.out.println(tx.getListaTickets().get(i).info());
         }
         System.out.println(tx.tiquetesVendidosdeCadaTipo());
+        System.out.println("");
+        System.out.println(tx.gananciasDeTodosLosTickets());
+        System.out.println("\033[31mEste texto es Rojo");
     }
     
 }

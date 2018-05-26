@@ -74,7 +74,30 @@ public class Compania {
                 }
             }
         }
-        return "Tickets Walk-Up: "+ walkCount +" Tickets Advance: " + 
+        return "Tickets vendidos \nTickets Walk-Up: "+ walkCount +" Tickets Advance: " + 
                 advCount +" Tickets Student Advance: " + studentCount;
+    }
+    
+    public String gananciasDeTodosLosTickets(){
+        int sumAdv =0;
+        int sumStudent =0;
+        int sumWalkUp =0;
+        Ticket x = null;
+        for (int i = 0; i < this.listaTickets.size(); i++) {
+            x= this.listaTickets.get(i);
+            if (x instanceof StudentAdvanceTicket) {
+                sumStudent+= x.getPrecio();
+            } else {
+                if (x instanceof AdvanceTicket) {
+                    sumAdv += x.getPrecio();
+                } else {
+                    if (x instanceof WalkUpTicket) {
+                        sumWalkUp += x.getPrecio();
+                    }
+                }
+            }
+        }
+        return "Ganancias por tipo de ticket \nTickets Walk-Up: "+ sumWalkUp +" Tickets Advance: " + 
+                sumAdv +" Tickets Student Advance: " + sumStudent;
     }
 }
